@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31320.298
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Celin.Query.Functions", "Celin.Query.Functions\Celin.Query.Functions.csproj", "{CC407723-78EB-4954-B62B-64BDEE8FB5B8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Celin.AIS.Data", "..\Celin.AIS.Data\Celin.AIS.Data.csproj", "{80592746-0293-48CE-B3DE-03DB25610352}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CC407723-78EB-4954-B62B-64BDEE8FB5B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC407723-78EB-4954-B62B-64BDEE8FB5B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC407723-78EB-4954-B62B-64BDEE8FB5B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC407723-78EB-4954-B62B-64BDEE8FB5B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80592746-0293-48CE-B3DE-03DB25610352}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80592746-0293-48CE-B3DE-03DB25610352}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80592746-0293-48CE-B3DE-03DB25610352}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80592746-0293-48CE-B3DE-03DB25610352}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {736ADD43-3642-407C-8880-0622625E1284}
+	EndGlobalSection
+EndGlobal
