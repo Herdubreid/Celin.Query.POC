@@ -1,0 +1,6 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\Microsoft\Office\16.0\WEF\TrustedCatalogs\{80FE92FF-9051-4968-997F-9D2CE38C3BA2}]
+"Id"="{80FE92FF-9051-4968-997F-9D2CE38C3BA2}"
+"Url"="\\\\BAULA\\Users\\fbrag\\source\\ExcelAddins"
+"Flags"=dword:00000001
