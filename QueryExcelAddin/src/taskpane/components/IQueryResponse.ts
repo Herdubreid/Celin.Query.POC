@@ -1,4 +1,4 @@
-export default interface IQueryResponse {
+export interface IQueryResponse {
   Title: string;
   Columns: any;
   Environment: string;

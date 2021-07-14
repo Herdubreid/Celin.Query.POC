@@ -1,4 +1,6 @@
 ﻿using Pidgin;
+using static Pidgin.Parser;
+using static Pidgin.Parser<char>;
 using System.Text.Json;
 
 namespace Celin
@@ -6,7 +8,7 @@ namespace Celin
     public class ParserService
     {
         public AIS.DatabrowserRequest Parse(string qry) =>
-            AIS.Data.DataRequest.Parser.Before(Parser.Char(';')).ParseOrThrow(qry.TrimEnd() + ';');
+            Try(AIS.Data.CombinedFileRequest.Parser).Or(AIS.Data.DataRequest.Parser).Before(End).ParseOrThrow(qry);
         public string ToString(string qry)
         {
             try

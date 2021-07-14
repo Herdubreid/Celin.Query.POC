@@ -1,6 +1,15 @@
 import React from "react";
-import { PrimaryButton, Checkbox, Stack, StackItem, IStackTokens, MessageBar, MessageBarType } from "@fluentui/react";
-import IQueryResponse from "./IQueryResponse";
+import {
+  Stack,
+  StackItem,
+  IStackTokens,
+  MessageBar,
+  MessageBarType,
+  Checkbox,
+  IconButton,
+  IIconProps,
+} from "@fluentui/react";
+import { IQueryResponse } from "./IQueryResponse";
 
 interface IPasteResultProps {
   result: IQueryResponse | null;
@@ -16,6 +25,8 @@ export class PasteResult extends React.Component<IPasteResultProps, IPasteResult
   state = {
     includeHeader: true,
   };
+  pasteIcon: IIconProps = { iconName: "Paste" };
+  insIcon: IIconProps = { iconName: "Insert" };
   handleIncludeHeader = () => this.setState({ includeHeader: !this.state.includeHeader });
   handlePaste = async () => {
     try {
@@ -78,12 +89,17 @@ export class PasteResult extends React.Component<IPasteResultProps, IPasteResult
               </MessageBar>
             </StackItem>
             <Stack horizontal tokens={this.tokens}>
-              <PrimaryButton onClick={this.handlePaste}>Paste</PrimaryButton>
-              <PrimaryButton onClick={this.handleInsert}>Insert</PrimaryButton>
+              <IconButton onClick={this.handlePaste} title="Past Result from Active Cell" iconProps={this.pasteIcon} />
+              <IconButton onClick={this.handleInsert} title="Insert Result as Table" iconProps={this.insIcon} />
+              <Stack.Item align="center">
+                <Checkbox
+                  label="Include Header"
+                  boxSide="end"
+                  onChange={this.handleIncludeHeader}
+                  checked={this.state.includeHeader}
+                />
+              </Stack.Item>
             </Stack>
-            <StackItem align="start">
-              <Checkbox label="Include Header" onChange={this.handleIncludeHeader} checked={this.state.includeHeader} />
-            </StackItem>
             {warning}
           </Stack>
         );

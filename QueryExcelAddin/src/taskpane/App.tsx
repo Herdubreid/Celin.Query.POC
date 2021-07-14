@@ -1,7 +1,6 @@
 import React from "react";
 import axios from "axios";
 import {
-  PrimaryButton,
   Stack,
   IStackTokens,
   Spinner,
@@ -9,31 +8,49 @@ import {
   StackItem,
   MessageBar,
   MessageBarType,
+  IconButton,
+  IIconProps,
 } from "@fluentui/react";
-import IQueryResponse from "./components/IQueryResponse";
-import CqlEditor from "./components/CqlEditor";
+import { CqlEditor } from "./components/cqlEditor";
+import { IQueryResponse } from "./components/IQueryResponse";
 import { PasteResult } from "./components/pasteResult";
 
-export interface IAppProps {}
-export interface IAppState {
-  code: string;
+interface IAppProps {}
+interface IAppState {
+  ids: number[];
   error: string;
   busy: boolean;
   result: IQueryResponse | null;
 }
 
 export default class App extends React.Component<IAppProps, IAppState> {
-  state = { code: "", warning: "", error: "", busy: false, result: null };
-  click = async () => {
+  state = {
+    ids: [0],
+    error: "",
+    busy: false,
+    result: null,
+  };
+  handleAdd = () => {
+    this.setState({
+      ids: [Math.max(...this.state.ids) + 1, ...this.state.ids],
+    });
+  };
+  handleDel = (id: number) => {
+    const ndx = this.state.ids.indexOf(id);
+    this.setState({
+      ids: [...this.state.ids.slice(0, ndx), ...this.state.ids.slice(ndx + 1, this.state.ids.length)],
+    });
+  };
+  handleSub = async (code: string) => {
     let result: IQueryResponse | null = null;
     this.setState({ error: "", busy: true, result: result });
     try {
       await axios({
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        url: "https://celinqueryfunctions.azurewebsites.net/api/Submit?code=ucXWB4Lf4JAYtUSexBwtzKiEZYtumi16SaozU5yxyXP3Easoe6VzqA==",
+        url: "http://localhost:7071/api/Submit",
         data: JSON.stringify({
-          code: this.state.code,
+          code,
         }),
       })
         .then(async (res) => {
@@ -67,11 +84,11 @@ export default class App extends React.Component<IAppProps, IAppState> {
     }
     this.setState({ busy: false, result: result });
   };
-  handleCodeChange = (code: string) => this.setState({ code });
   stackStyle: IStackTokens = {
     childrenGap: 10,
     padding: 5,
   };
+  addIcon: IIconProps = { iconName: "Add" };
   render() {
     let spinner;
     if (this.state.busy) {
@@ -87,17 +104,17 @@ export default class App extends React.Component<IAppProps, IAppState> {
     }
     return (
       <Stack tokens={this.stackStyle}>
+        {spinner}
         <PasteResult result={this.state.result} />
-        <Stack.Item align="start">
-          <PrimaryButton onClick={this.click} disabled={this.state.busy}>
-            Run&nbsp;
-            {spinner}
-          </PrimaryButton>
-        </Stack.Item>
         {error}
-        <Stack.Item>
-          <CqlEditor code={this.state.code} onValueChange={this.handleCodeChange} />
+        <Stack.Item align="start">
+          <IconButton onClick={this.handleAdd} iconProps={this.addIcon} title="Add Editor" />
         </Stack.Item>
+        {this.state.ids.map((id) => (
+          <Stack.Item key={id}>
+            <CqlEditor id={id} code="" onSub={this.handleSub} onDel={this.handleDel} busy={this.state.busy} />
+          </Stack.Item>
+        ))}
       </Stack>
     );
   }
