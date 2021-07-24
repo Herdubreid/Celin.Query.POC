@@ -10,7 +10,7 @@ This is the .Net part that runs as an Azure function.
 
 ### QueryExcelAddin
 
-This is the Excel React Add-Ins component that runs as a static websited on Azure.
+This is the Excel React Add-Ins component that runs as a static website on Azure.
 
 ## Installation
 
