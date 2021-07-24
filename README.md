@@ -34,7 +34,7 @@ This only works for Excel on-line.
 [Distribute business apps using the App Catalog - SharePoint - SharePoint in Microsoft 365 | Microsoft Docs](https://docs.microsoft.com/en-us/sharepoint/use-app-catalog)
 2. Upload the manifest to 'Apps for Office' site:
 ![Apps for Office](./sharepoint.png)
-3. For Excel on-line, the Add-in is available under 'MY ORGANIZATION' and from Insert -> Office Add-ins:
+3. For Excel on-line, the Add-in is available under 'MY ORGANIZATION' under Insert -> Office Add-ins:
 ![Office Add-ins](./office-add-ins.png)
 4. To make the Add-in available for desktop Excel, open Trust Center Settings... under File -> Options:
 ![Trust Center](./trust-center.png)
