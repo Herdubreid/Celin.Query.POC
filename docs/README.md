@@ -3,11 +3,11 @@
 The syntax for CelinQL borrows its structure from SQL with simplification and adaptations to AIS DataBrowser functionality.
 
 A basic CelinQL statement is constructed with a subject, followed by optional object, filter and order.
-<pre><i>Subject [object] [filter] [order]</i></pre> 
+<pre><i>subject [object] [filter] [order]</i></pre> 
 
 ## Subject
 
-Every statement requires a subject, which is either a table or business view name (starts with either `f` or `v`).
+Every statement requires a subject, which is either a table or business view (name starts with either `f` or `v`).
 
 #### Example
 <pre><b>f0101</b></pre>
@@ -62,7 +62,7 @@ Total the order line amounts by supplier.
 
 ### Filter
 
-The filter is constructed from conditions of the form `alias` operator and value.
+The filter is constructed from conditions in the form `alias` operator and value.
 <pre><i>[table.]alias operator value</i></pre>
 
 #### Operators
@@ -93,3 +93,9 @@ One or more conditions are separated by space inside brackets, prefixed with eit
 Total open OP orders with Next Status equal 400.
 
 **Note:** The table prefix is default from the subject, which only works for tables.  If the subject is business view, then the table prefix is required.
+
+#### Example 2
+<pre><b>f4801</b> (doco,dl01,srst)<span style="color: #07a"> all</span>(srst bw "10","45")</pre>
+List work orders with status between 10 and 40.
+
+**Note:** The value can optionally be enclosed in quotation marks.  When values contain non alphanumeric characters, quotations marks are required.
