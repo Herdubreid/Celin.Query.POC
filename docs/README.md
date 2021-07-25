@@ -1,4 +1,4 @@
-# Usages
+# Usage
 
 The syntax for CelinQL borrows its structure from SQL with simplification and adaptations to AIS DataBrowser functionality.
 
@@ -49,7 +49,7 @@ The aggregate allows grouping and calculating subject's data.
 - `count_distinct` - Count only unique values.
 - `avg_distinct` - Average only unique values.
 
-There can be one or more aggregates separated by space inside square brackets.
+One or more aggregates are separated by space inside square brackets.
 <pre>[<i>aggregate</i>(<i>[table.]alias,...</i>),...]</pre>
 
 #### Example 1
@@ -59,3 +59,37 @@ Get highest, lowest, average and total order line amounts.
 #### Example 2
 <pre><b>f4311</b> [<span style="color: #dd4a68;">group</span>(an8) <span style="color: #dd4a68;">sum</span>(aexp)]</pre>
 Total the order line amounts by supplier.
+
+### Filter
+
+The filter is constructed from conditions of the form `alias` operator and value.
+<pre><i>[table.]alias operator value</i></pre>
+
+#### Operators
+
+- `=` - Equal.
+- `>` - Greater.
+- `<` - Less.
+- `>=` - Greater or Equal.
+- `<=` - Less or Equal.
+- `<>` - Not Equal.
+- `bw` - Between.
+- `in` - In List.
+- `?` - String Contains.
+- `_` - String is Blank.
+- `!` - String is Not Blank.
+- `^` - String Starts With.
+- `$` - String Ends With.
+
+One or more conditions are separated by space inside brackets, prefixed with either `all` or `any`.
+
+- `all` - All conditions must be satisfied.
+<pre><span style="color: #07a">all</span>(<i>conditions</i>,...)</pre>
+- `any` - Any of the conditions must be satisfied.
+<pre><span style="color: #07a">any</span>(<i>conditions</i>,...)</pre>
+
+#### Example 1
+<pre><b>f4311</b> [<span style="color: #dd4a68;">group</span>(an8) <span style="color: #dd4a68;">sum</span>(aexp)]<span style="color: #07a"> all</span>(nxtr=400 dcto=OP uopn<>0)</pre>
+Total open OP orders with Next Status equal 400.
+
+**Note:** The table prefix is default from the subject, which only works for tables.  If the subject is business view, then the table prefix is required.
