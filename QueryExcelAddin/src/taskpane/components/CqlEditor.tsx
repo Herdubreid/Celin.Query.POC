@@ -3,7 +3,6 @@ import Editor from "react-simple-code-editor";
 import { highlight, languages } from "prismjs";
 import { IconButton, IIconProps } from "@fluentui/react";
 import "./prism-celinql";
-import "prismjs/themes/prism.css";
 
 export interface ICqlEditorProps {
   id: number;
@@ -27,20 +26,24 @@ export class CqlEditor extends React.Component<ICqlEditorProps, CqlEditorState> 
     const runIcon: IIconProps = { iconName: "Running" };
     return (
       <div>
-        <div className="actions">
-          <IconButton
-            onClick={() => this.props.onSub(this.state.code)}
-            iconProps={runIcon}
-            title="Submit Query"
-            disabled={this.props.busy || /^\s*$/.test(this.state.code)}
-          />
-          <IconButton
-            onClick={() => this.props.onDel(this.props.id)}
-            style={{ color: "red" }}
-            iconProps={delIcon}
-            title="Delete Editor"
-          />
-        </div>
+        <ul className="actions">
+          <li>
+            <IconButton
+              onClick={() => this.props.onSub(this.state.code)}
+              iconProps={runIcon}
+              title="Submit Query"
+              disabled={this.props.busy || /^\s*$/.test(this.state.code)}
+            />
+          </li>
+          <li>
+            <IconButton
+              onClick={() => this.props.onDel(this.props.id)}
+              style={{ color: "red" }}
+              iconProps={delIcon}
+              title="Delete Editor"
+            />
+          </li>
+        </ul>
         <Editor
           value={this.state.code}
           onValueChange={(code) => this.handleCodeChange(code)}

@@ -48,7 +48,8 @@ export default class App extends React.Component<IAppProps, IAppState> {
       await axios({
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        url: "http://localhost:7071/api/Submit",
+        //url: "http://localhost:7071/api/Submit",
+        url:"https://celinqueryfunctions.azurewebsites.net/api/Submit?code=hZgkPauoUXuLFOr2Tat3o6poXM7j0wnsObvoKCE8MPeKsvUF2N5tJg==",
         data: JSON.stringify({
           code,
         }),
