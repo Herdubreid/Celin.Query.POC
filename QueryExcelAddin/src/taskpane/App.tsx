@@ -49,7 +49,7 @@ export default class App extends React.Component<IAppProps, IAppState> {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         //url: "http://localhost:7071/api/Submit",
-        url:"https://celinqueryfunctions.azurewebsites.net/api/Submit?code=hZgkPauoUXuLFOr2Tat3o6poXM7j0wnsObvoKCE8MPeKsvUF2N5tJg==",
+        url: "https://celinqueryfunctions.azurewebsites.net/api/Submit?code=hZgkPauoUXuLFOr2Tat3o6poXM7j0wnsObvoKCE8MPeKsvUF2N5tJg==",
         data: JSON.stringify({
           code,
         }),
@@ -105,11 +105,13 @@ export default class App extends React.Component<IAppProps, IAppState> {
     }
     return (
       <Stack tokens={this.stackStyle}>
-        {spinner}
         <PasteResult result={this.state.result} />
         {error}
         <Stack.Item align="start">
-          <IconButton onClick={this.handleAdd} iconProps={this.addIcon} title="Add Editor" />
+          <Stack horizontal>
+            <IconButton onClick={this.handleAdd} iconProps={this.addIcon} title="Add Editor" />
+            {spinner}
+          </Stack>
         </Stack.Item>
         {this.state.ids.map((id) => (
           <Stack.Item key={id}>
