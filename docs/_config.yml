@@ -8,3 +8,5 @@ aux_links:
   - "//github.com/Herdubreid/Celin.Query"
 
 remote_theme: pmarsceill/just-the-docs
+
+theme: jekyll-theme-cayman
