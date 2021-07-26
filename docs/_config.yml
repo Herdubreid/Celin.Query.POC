@@ -1,1 +1,10 @@
-theme: jekyll-theme-cayman
+title: CelinQL Excel Add-in
+author: Finnur Bragason
+email: fbragason@outlook.com
+description: > # this means to ignore newlines until "aux_links:"
+  Extract data from JDE tables and business views into Excel.
+aux_links:
+  "Visit on Github":
+  - "//github.com/Herdubreid/Celin.Query"
+
+remote_theme: pmarsceill/just-the-docs
