@@ -11,6 +11,8 @@ There are three options for installing the Add-Ins.
 * Upload the manifest to the Apps for Office site of SharePoint.
 * Save the manifest on a file share.
 
+Start by downloading the manifest file [here](./assets/celinql.manifest.prod.xml). 
+
 ### Side-loading Add-Ins
 
 This only works for Excel on-line.
