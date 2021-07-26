@@ -1,6 +1,4 @@
-# Celin.Query
-
-## Solution
+## Overview
 
 The solution has two components.
 
