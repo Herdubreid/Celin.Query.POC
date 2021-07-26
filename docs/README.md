@@ -1,9 +1,4 @@
----
-title: Overview
-nav_order: 1
----
-
-## Overview
+# Overview
 
 The solution has two components.
 
