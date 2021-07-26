@@ -49,7 +49,7 @@ The aggregate allows grouping and calculating subject's data.
 - `count_distinct` - Count only unique values.
 - `avg_distinct` - Average only unique values.
 
-One or more aggregates are separated by space inside square brackets.
+Two or more aggregates are separated by space inside square brackets.
 <pre>[<i>aggregate</i>(<i>[table.]alias,...</i>),...]</pre>
 
 #### Example 1
@@ -60,7 +60,7 @@ Get highest, lowest, average and total order line amounts.
 <pre><b>f4311</b> [<span style="color: #dd4a68;">group</span>(an8) <span style="color: #dd4a68;">sum</span>(aexp)]</pre>
 Total the order line amounts by supplier.
 
-### Filter
+## Filter
 
 The filter is constructed from conditions in the form `alias` operator and value.
 <pre><i>[table.]alias operator value</i></pre>
@@ -85,12 +85,12 @@ One or more conditions are separated by space inside brackets, prefixed with eit
 
 - `all` - All conditions must be satisfied.
 <pre><span style="color: #07a">all</span>(<i>conditions</i>,...)</pre>
-- `any` - Any of the conditions must be satisfied.
+- `any` - One condition must be satisfied.
 <pre><span style="color: #07a">any</span>(<i>conditions</i>,...)</pre>
 
 #### Example 1
 <pre><b>f4311</b> [<span style="color: #dd4a68;">group</span>(an8) <span style="color: #dd4a68;">sum</span>(aexp)]<span style="color: #07a"> all</span>(nxtr=400 dcto=OP uopn<>0)</pre>
-Total open OP orders with Next Status equal 400.
+Total extended amounts OP orders with Next Status equal 400.
 
 **Note:** The table prefix is default from the subject, which only works for tables.  If the subject is business view, then the table prefix is required.
 
@@ -99,3 +99,32 @@ Total open OP orders with Next Status equal 400.
 List work orders with status between 10 and 40.
 
 **Note:** The value can optionally be enclosed in quotation marks.  When values contain non alphanumeric characters, quotations marks are required.
+
+### Advanced Filter
+
+Two or more filters can be joined with `and`/`or` keywords.
+
+- `and` - The following filter must also be satisfied.
+<pre><i>filter</i> <span style="color: #07a">and</span><i> filter</i></pre>
+- `or` - Either filter must be satisfied.
+<pre><i>filter</i> <span style="color: #07a">or</span><i> filter</i></pre>
+
+#### Example
+
+<pre><b>f4311</b> [<span style="color: #dd4a68;">group</span>(an8,nxtr) <span style="color: #dd4a68;">sum</span>(aexp,aopn)]<span style="color: #07a"> all</span>(dcto=OP)<span style="color: #07a"> and any</span>(uopn<>0 aopn<>0)</pre>
+Total extended and open amounts for OP order types where either open amount or open units are not zero, grouped by supplier and next status.
+
+## Order
+
+The results can be sequence with the `by` keyword.
+<pre><span style="color: #07a">by</span>[<i>sequence...</i>]</pre>
+Where sequence is one or more `asc` or `desc` statements.
+
+- `asc` - Ascending order.
+<pre><span style="color: #07a">asc</span>(<i>[table.].alias,...</i>)</pre>
+- `desc` - Descending order.
+<pre><span style="color: #07a">desc</span>(<i>[table.].alias,...</i>)</pre>
+
+#### Example 1
+<pre><b>f4311</b> (dcto,an8,doco) <span style="color: #07a">by</span>[<span style="color: #07a">asc</span>(dcto) <span style="color: #07a">desc</span>(an8) <span style="color: #07a">asc</span>(doco)]</pre>
+Order by dcto Ascending, then an8 Descending and finally dcto Ascending.
