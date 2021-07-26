@@ -17,7 +17,7 @@ Start by downloading the manifest file <a href="./assets/celinql.manifest.prod.x
 
 This only works for Excel on-line.
 
-1. Open Excel on-line (try [this ](https://herdubreid.sharepoint.com/:x:/s/celinql/EYBwRJ-spmZFuj2D6S3Sy0YBSXPZv4ozVJglWjG8IrXWWg?e=jjRwFu)for example).
+1. Open Excel on-line (try [this ](https://herdubreid-my.sharepoint.com/:x:/g/personal/finnur_herdubreid_onmicrosoft_com/EXatGmwAzddJmYl997fZm_QBh8a9oUn_FGxkR4sxubY8AA?e=3eoW0K)for example).
 2. Select Insert -> Office Add-ins.
 3. Select the 'Upload My Add-in' option and upload the manifest file.
 
