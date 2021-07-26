@@ -1,6 +1,6 @@
 ---
 title: Installation
-nav_order: 1
+nav_order: 2
 ---
 
 ## Installation
@@ -24,20 +24,20 @@ This only works for Excel on-line.
 1. Open/create SharePoint App Catalogue:
 [Distribute business apps using the App Catalog - SharePoint - SharePoint in Microsoft 365 | Microsoft Docs](https://docs.microsoft.com/en-us/sharepoint/use-app-catalog)
 2. Upload the manifest to 'Apps for Office' site:
-![Apps for Office](./images/sharepoint.png)
+![Apps for Office](./assets/images/sharepoint.png)
 3. For Excel on-line, the Add-in is available under 'MY ORGANIZATION' under Insert -> Office Add-ins:
-![Office Add-ins](./images/office-add-ins.png)
+![Office Add-ins](./assets/images/office-add-ins.png)
 4. To make the Add-in available for desktop Excel, open Trust Center Settings... under File -> Options:
-![Trust Center](./images/trust-center.png)
+![Trust Center](./assets/images/trust-center.png)
 5. Add the URL reference to the SharePoint catalogue as Trusted Add-in Catalogs.
-![Trusted Catalogs](./images/trust-add-ins-catalogs.png)
+![Trusted Catalogs](./assets/images/trust-add-ins-catalogs.png)
 This will make the Add-in available under 'MY ORGANIZATION'.
 
 ### Save the manifest on a Network-Folder
 
 Save the manifest to a network-folder and share it.  Add the network path of the shared folder to the Trusted Add-in Catalogs using the step 5 above.
-![Trusted Catalogs Shared Folder](./images/trust-add-ins-catalogs-shared-folder.png)
+![Trusted Catalogs Shared Folder](./assets/images/trust-add-ins-catalogs-shared-folder.png)
 This will make the Add-in available under 'SHARED FOLDER'.
 
 The Add-in is available on the Home menu once added.
-![Home menu](./images/excel-menu.png)
+![Home menu](./assets/images/excel-menu.png)
