@@ -11,3 +11,5 @@ The Add-in consists of an editor to enter the CelinQL statements, and Submit, De
 ![Simple Query](./assets/images/simple-query.png)
 - When the query returns, insert the the data as table.
 ![Insert table](./assets/images/insert-table.png)
+- Add new editor with the + button.
+![Add Editor](./assets/images/add-editor.png)
