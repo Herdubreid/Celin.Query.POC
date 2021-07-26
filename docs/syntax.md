@@ -2,6 +2,9 @@
 title: Query Syntax
 nav_order: 3
 ---
+
+# Syntax
+
 The syntax for CelinQL borrows its structure from SQL with simplification and adaptations to AIS DataBrowser functionality.
 
 A basic CelinQL statement is constructed with a subject, followed by optional object, filter and order.

@@ -2,6 +2,9 @@
 title: Installation
 nav_order: 2
 ---
+
+# Installation
+
 There are three options for installing the Add-Ins.
 
 * Side-loading for Excel Online.  The quick-and-dirty way to check it out.
