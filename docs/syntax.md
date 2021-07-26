@@ -1,4 +1,9 @@
-# Usage
+---
+title: Query Syntax
+nav_order: 2
+---
+
+# Query Syntax
 
 The syntax for CelinQL borrows its structure from SQL with simplification and adaptations to AIS DataBrowser functionality.
 
