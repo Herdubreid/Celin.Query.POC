@@ -1,4 +1,7 @@
 title: "CelinQL"
 remote_theme: pmarsceill/just-the-docs
 color_scheme: "dark"
+aux_links:
+  "Visit on Github":
+  - "//github.com/Herdubreid/Celin.Query"
 search_enabled: false
